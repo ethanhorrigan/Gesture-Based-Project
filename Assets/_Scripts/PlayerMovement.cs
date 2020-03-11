@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject player;
     private GameObject lanes;
 
-    private Vector3 topLane, midLane, botLane;
+    private GameObject topLane, midLane, botLane;
 
 
     void Start()
@@ -18,17 +18,19 @@ public class PlayerMovement : MonoBehaviour
 
         SetLanes();
 
-        player.transform.position = midLane;
+        player.transform.position = topLane.transform.position;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
+            Debug.Log("Go UP");
             GoUpLane();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
+            Debug.Log("Go DOWN");
             GoDownLane();
         }
 
@@ -36,41 +38,41 @@ public class PlayerMovement : MonoBehaviour
 
     private void GoDownLane()
     {
-        if (player.transform.position == topLane)
+        if (player.transform.position == topLane.transform.position)
         {
-            player.transform.position = midLane;
+            player.transform.position = midLane.transform.position;
         }
-        else if (player.transform.position == midLane)
+        else if (player.transform.position == midLane.transform.position)
         {
-            player.transform.position = botLane;
+            player.transform.position = botLane.transform.position;
         }
         else
         {
-            player.transform.position = botLane;
+            player.transform.position = botLane.transform.position;
         }
     }
 
     private void GoUpLane()
     {
-        if (player.transform.position == botLane)
+        if (player.transform.position == botLane.transform.position)
         {
-            player.transform.position = midLane;
+            player.transform.position = midLane.transform.position;
         }
-        else if (player.transform.position == midLane)
+        else if (player.transform.position == midLane.transform.position)
         {
-            player.transform.position = topLane;
+            player.transform.position = topLane.transform.position;
         }
         else
         {
-            player.transform.position = topLane;
+            player.transform.position = topLane.transform.position;
         }
     }
 
     void SetLanes()
     {
-        Vector3 topLane = lanes.transform.Find("LaneTop").gameObject.transform.position;
-        Vector3 midLane = lanes.transform.Find("LaneMiddle").gameObject.transform.position;
-        Vector3 botLane = lanes.transform.Find("LaneBottom").gameObject.transform.position;
+        topLane = lanes.transform.Find("LaneTop").gameObject;
+        midLane = lanes.transform.Find("LaneMiddle").gameObject;
+        botLane = lanes.transform.Find("LaneBottom").gameObject;
     }
 
 

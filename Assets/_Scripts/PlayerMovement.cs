@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     public int velocity;
 
-
-
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();

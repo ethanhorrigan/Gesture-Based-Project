@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3296628789839841155}
-  - component: {fileID: 1291171237787963715}
+  - component: {fileID: 3476307687346321738}
   m_Layer: 0
   m_Name: ObstaclePreset_02
   m_TagString: Untagged
@@ -63,7 +63,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1291171237787963715
+--- !u!114 &3476307687346321738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9f0fbad73aa2542bc4bf066c617885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 2739921266425674826, guid: b366395bcfff44f42a883fa662175a2c, type: 3}
 --- !u!1 &6043518675595215896
 GameObject:
   m_ObjectHideFlags: 0

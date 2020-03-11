@@ -6,6 +6,9 @@ using Pose = Thalmic.Myo.Pose;
 using UnlockType = Thalmic.Myo.UnlockType;
 using VibrationType = Thalmic.Myo.VibrationType;
 using System;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 // Controlls what lane the player is in
 // Send haptic feedback when a movement is made
@@ -18,6 +21,12 @@ public class StateManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject deathMenu;
 
+    public Text scoreText;
+    public float timer;
+    public int score;
+
+    public Player player;
+
     // The pose from the last update. This is used to determine if the pose has changed
     // so that actions are only performed upon making them rather than every frame during
     // which they are active.
@@ -25,7 +34,7 @@ public class StateManager : MonoBehaviour
 
     private void Start()
     {
-        
+       
     }
 
 
@@ -34,6 +43,8 @@ public class StateManager : MonoBehaviour
     {
         // Access the ThalmicMyo component attached to the Myo game object.
         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
+
+        ScoreIncrease();
 
         // Check if the pose has changed since last update.
         // The ThalmicMyo component of a Myo game object has a pose property that is set to the
@@ -72,6 +83,34 @@ public class StateManager : MonoBehaviour
             {
                 pauseMenu.gameObject.SetActive(true);
             }
+        }
+
+        if(player.health == 0)
+        {
+            deathMenu.gameObject.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadSceneAsync("SpawnTest");
+            }
+        }
+
+    }
+
+    private void ScoreIncrease()
+    { 
+        timer += Time.deltaTime;
+
+        if (timer > 5f)
+        {
+
+            score += 5;
+
+            //We only need to update the text if the score changed.
+            scoreText.text = score.ToString();
+
+            //Reset the timer to 0.
+            timer = 0;
         }
     }
 

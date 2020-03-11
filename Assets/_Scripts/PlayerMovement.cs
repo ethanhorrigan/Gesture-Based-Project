@@ -5,64 +5,74 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject player;
-    public float movementSpeed = 3f;
-    float jumpSpeed = 500f;
-    public static bool grounded = true;
-    bool jumping = false;
-    Rigidbody2D rb;
+    private GameObject player;
+    private GameObject lanes;
 
-    public int velocity;
+    private Vector3 topLane, midLane, botLane;
+
 
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
+        lanes = GameObject.Find("Lanes");
+
+        SetLanes();
+
+        player.transform.position = midLane;
     }
 
     void Update()
     {
-        if (velocity == 0)
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            jumping = false;
-            grounded = true;
+            GoUpLane();
         }
-
-        if (grounded)
+        else if (Input.GetKeyDown(KeyCode.S))
         {
-            rb.gravityScale = 2.1f;
+            GoDownLane();
         }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) && velocity == 0)
-        {
-            if (grounded)
-            {
-                rb.AddForce(Vector3.up * jumpSpeed);
-                grounded = false;
-                jumping = true;
-                Debug.Log("Vector3.up: " + Vector3.up + "");
-            }
-        }
-
-        if (jumping == true)
-        {
-            velocity++;
-        } 
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void GoDownLane()
     {
-        velocity = 0;
+        if (player.transform.position == topLane)
+        {
+            player.transform.position = midLane;
+        }
+        else if (player.transform.position == midLane)
+        {
+            player.transform.position = botLane;
+        }
+        else
+        {
+            player.transform.position = botLane;
+        }
     }
+
+    private void GoUpLane()
+    {
+        if (player.transform.position == botLane)
+        {
+            player.transform.position = midLane;
+        }
+        else if (player.transform.position == midLane)
+        {
+            player.transform.position = topLane;
+        }
+        else
+        {
+            player.transform.position = topLane;
+        }
+    }
+
+    void SetLanes()
+    {
+        Vector3 topLane = lanes.transform.Find("LaneTop").gameObject.transform.position;
+        Vector3 midLane = lanes.transform.Find("LaneMiddle").gameObject.transform.position;
+        Vector3 botLane = lanes.transform.Find("LaneBottom").gameObject.transform.position;
+    }
+
 
 
 }

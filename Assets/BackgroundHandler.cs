@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// Set the start of the background (Xstart).
+/// Set the end of the background (Xend).
+/// Translate the background on the X axis.
+/// When the position of the background is less the Xend, reset the image.
+/// 
+/// </summary>
 public class BackgroundHandler : MonoBehaviour
 {
     public float speed;

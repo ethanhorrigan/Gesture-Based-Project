@@ -12,6 +12,8 @@ public class WallHandler : MonoBehaviour
     bool lock2 = false;
     bool lock3 = false;
 
+    public
+
     // Start is called before the first frame update
     void Start()
     {

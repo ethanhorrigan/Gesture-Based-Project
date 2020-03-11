@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
         SetLanes();
 
-        player.transform.position = topLane.transform.position;
+        player.transform.position = midLane.transform.position;
     }
 
     void Update()

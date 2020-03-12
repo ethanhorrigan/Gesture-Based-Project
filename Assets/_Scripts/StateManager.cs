@@ -9,9 +9,6 @@ using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-// Controlls what lane the player is in
-// Send haptic feedback when a movement is made
 public class StateManager : MonoBehaviour
 {
     // Myo game object to connect with.

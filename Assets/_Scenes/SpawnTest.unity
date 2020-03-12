@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 752917294}
   - component: {fileID: 752917295}
   - component: {fileID: 752917296}
+  - component: {fileID: 752917297}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -644,6 +645,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &752917297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752917290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53ee5d40edfc5142bc017d50f00764f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myo: {fileID: 0}
 --- !u!1 &858959176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,69 +1118,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1867371000
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 100002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_Name
-      value: Hub - 1 Myo
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 863250160b56e46dbb2d227833b7338a, type: 3}
---- !u!1 &1867371001 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 863250160b56e46dbb2d227833b7338a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1867371000}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2009651819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9429b1d7fe4714d8bf56b5999d3a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myo: {fileID: 1867371001}
+  myo: {fileID: 0}
   pauseMenu: {fileID: 1632687498}
   deathMenu: {fileID: 1151023734}
   scoreText: {fileID: 1115283618}
@@ -1427,7 +1378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Paused. \nDouble tap on Myo to Resume."
+  m_text: "Paused. \nMake a fist on the Myo to Resume."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

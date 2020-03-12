@@ -53,20 +53,33 @@ public class StateManager : MonoBehaviour
             _lastPose = thalmicMyo.pose;
 
 
-            if (thalmicMyo.pose == Pose.DoubleTap || Input.GetKeyDown(KeyCode.T))
+            
+        }
+
+        if (thalmicMyo.pose == Pose.DoubleTap || Input.GetKeyDown(KeyCode.T))
+        {
+            thalmicMyo.Vibrate(VibrationType.Medium);
+
+            if (pauseMenu.gameObject.activeSelf)
             {
-                thalmicMyo.Vibrate(VibrationType.Medium);
+                pauseMenu.gameObject.SetActive(false);
+            }
+            else
+            {
+                pauseMenu.gameObject.SetActive(true);
+            }
 
-                if (pauseMenu.gameObject.activeSelf)
-                {
-                    pauseMenu.gameObject.SetActive(false);
-                }
-                else
-                {
-                    pauseMenu.gameObject.SetActive(true);
-                }
+            ExtendUnlockAndNotifyUserAction(thalmicMyo);
+        }
 
-                ExtendUnlockAndNotifyUserAction(thalmicMyo);
+        if (player.health == 0)
+        {
+            deathMenu.gameObject.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.R) || thalmicMyo.pose == Pose.FingersSpread)
+            {
+                Debug.Log("fingers spread");
+                SceneManager.LoadSceneAsync("SpawnTest", LoadSceneMode.Single);
             }
         }
 
@@ -82,15 +95,7 @@ public class StateManager : MonoBehaviour
             }
         }
 
-        if(player.health == 0)
-        {
-            deathMenu.gameObject.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadSceneAsync("SpawnTest");
-            }
-        }
+        
 
     }
 

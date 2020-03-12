@@ -13,8 +13,10 @@ public class EnemyHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("test");
         if (other.CompareTag("Player"))
         {
+            Debug.Log("test");
             other.GetComponent<Player>().health--;
             Destroy(gameObject);
         }

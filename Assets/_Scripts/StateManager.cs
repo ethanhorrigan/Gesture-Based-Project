@@ -17,13 +17,17 @@ public class StateManager : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject deathMenu;
+    public GameObject spawner;
+    public GameObject playerObject;
 
     public Text scoreText;
     public float timer;
     public int score;
 
+
     public Player player;
 
+ 
     // The pose from the last update. This is used to determine if the pose has changed
     // so that actions are only performed upon making them rather than every frame during
     // which they are active.
@@ -31,7 +35,6 @@ public class StateManager : MonoBehaviour
 
     private void Start()
     {
-       
     }
 
 
@@ -40,6 +43,12 @@ public class StateManager : MonoBehaviour
     {
         // Access the ThalmicMyo component attached to the Myo game object.
         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
+        if (player.health <= 0)
+        {
+            spawner.SetActive(false);
+            deathMenu.gameObject.SetActive(true);
+            Destroy(playerObject);
+        }
 
         ScoreIncrease();
 
@@ -72,15 +81,10 @@ public class StateManager : MonoBehaviour
             ExtendUnlockAndNotifyUserAction(thalmicMyo);
         }
 
-        if (player.health == 0)
+        if (Input.GetKeyDown(KeyCode.R) || thalmicMyo.pose == Pose.FingersSpread && player.health == 0)
         {
-            deathMenu.gameObject.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.R) || thalmicMyo.pose == Pose.FingersSpread)
-            {
-                Debug.Log("fingers spread");
-                SceneManager.LoadSceneAsync("SpawnTest", LoadSceneMode.Single);
-            }
+            Debug.Log("fingers spread");
+            SceneManager.LoadSceneAsync("SpawnTest", LoadSceneMode.Single);
         }
 
         if (Input.GetKeyDown(KeyCode.T))

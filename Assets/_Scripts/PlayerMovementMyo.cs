@@ -18,6 +18,7 @@ public class PlayerMovementMyo : MonoBehaviour
     private GameObject player;
     private GameObject lanes;
 
+
     private GameObject topLane, midLane, botLane;
 
     // The pose from the last update. This is used to determine if the pose has changed

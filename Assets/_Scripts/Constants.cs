@@ -9,5 +9,8 @@ public class Constants : MonoBehaviour
     public const int DOUBLE_TAP = 2;
     public const int FIST = 3;
     public const int SPREAD = 4;
+
+    public const int PAUSED_STATE = 1;
+    public const int PLAY_STATE = 2;
     
 }

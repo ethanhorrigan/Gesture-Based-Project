@@ -1368,6 +1368,8 @@ MonoBehaviour:
   myo: {fileID: 1426193613}
   pauseMenu: {fileID: 1632687498}
   deathMenu: {fileID: 1151023734}
+  spawner: {fileID: 1600082790}
+  playerObject: {fileID: 752917290}
   scoreText: {fileID: 1115283618}
   timer: 0
   score: 0

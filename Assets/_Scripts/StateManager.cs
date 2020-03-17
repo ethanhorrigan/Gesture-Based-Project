@@ -115,13 +115,7 @@ public class StateManager : MonoBehaviour
 
     private void ScoreIncrease()
     { 
-
-        timer += Time.deltaTime;
-
-        if (timer > 5f && player.health != 0)
-
         if (!paused)
-
         {
             timer += Time.deltaTime;
             if (timer > 5f)

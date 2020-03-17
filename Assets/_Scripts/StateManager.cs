@@ -24,6 +24,8 @@ public class StateManager : MonoBehaviour
     public float timer;
     public int score;
 
+    private bool paused = false;
+
 
     public Player player;
 
@@ -87,15 +89,23 @@ public class StateManager : MonoBehaviour
             SceneManager.LoadSceneAsync("SpawnTest", LoadSceneMode.Single);
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             if (pauseMenu.gameObject.activeSelf)
             {
+                paused = false;
                 pauseMenu.gameObject.SetActive(false);
+                scoreText.gameObject.SetActive(true);
+                spawner.SetActive(true);
+                playerObject.SetActive(true);
             }
             else
             {
+                paused = true;
                 pauseMenu.gameObject.SetActive(true);
+                scoreText.gameObject.SetActive(false);
+                spawner.SetActive(false);
+                playerObject.SetActive(false);
             }
         }
 
@@ -105,18 +115,26 @@ public class StateManager : MonoBehaviour
 
     private void ScoreIncrease()
     { 
+
         timer += Time.deltaTime;
 
         if (timer > 5f && player.health != 0)
+
+        if (!paused)
+
         {
+            timer += Time.deltaTime;
+            if (timer > 5f)
+            {
 
-            score += 5;
+                score += 5;
 
-            //We only need to update the text if the score changed.
-            scoreText.text = score.ToString();
+                //We only need to update the text if the score changed.
+                scoreText.text = score.ToString();
 
-            //Reset the timer to 0.
-            timer = 0;
+                //Reset the timer to 0.
+                timer = 0;
+            }
         }
          
         if (player.health == 0)

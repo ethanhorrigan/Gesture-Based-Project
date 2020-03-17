@@ -107,7 +107,7 @@ public class StateManager : MonoBehaviour
     { 
         timer += Time.deltaTime;
 
-        if (timer > 5f)
+        if (timer > 5f && player.health != 0)
         {
 
             score += 5;
@@ -117,6 +117,11 @@ public class StateManager : MonoBehaviour
 
             //Reset the timer to 0.
             timer = 0;
+        }
+         
+        if (player.health == 0)
+        {
+            scoreText.text = "";
         }
     }
 

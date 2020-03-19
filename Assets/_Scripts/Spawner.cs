@@ -14,15 +14,38 @@ public class Spawner : MonoBehaviour
     public float startTimeBetweenSpawns;
     public float timeDecrease;
     public float minTime;
-
+    public GameObject key;
     public GameObject[] obstacles;
+
+    public static bool gesturePhase = false;
 
     private void Start()
     {
         timeBetweenSpawns = startTimeBetweenSpawns;
+        key.SetActive(false);
     }
 
     private void Update()
+    {
+        if (!gesturePhase)
+        {
+            SpawnEnimies();
+        }
+        else
+        {
+            SpawnKey();
+        }
+
+    }
+
+    public void SpawnKey()
+    {
+        key.SetActive(true);
+
+        // Once finished set gesturephase to false
+    }
+
+    private void SpawnEnimies()
     {
         if (timeBetweenSpawns <= 0)
         {
@@ -41,7 +64,6 @@ public class Spawner : MonoBehaviour
         {
             timeBetweenSpawns -= Time.deltaTime;
         }
-
     }
 
 }

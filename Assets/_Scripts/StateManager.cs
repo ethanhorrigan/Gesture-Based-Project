@@ -109,18 +109,13 @@ public class StateManager : MonoBehaviour
                 pauseMenu.gameObject.SetActive(true);
             }
         }
-        /*
+        
         if(score == nextGesturePhase)
         {
             nextGesturePhase += 20;
-            GesturePhase();
+            Spawner.gesturePhase = true;
         }
-        */
-    }
-
-    private void GesturePhase()
-    {
-        spawner.SetActive(false);
+        
     }
 
     private void ScoreIncrease()

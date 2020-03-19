@@ -24,6 +24,7 @@ public class StateManager : MonoBehaviour
     public Text scoreText;
     public float timer;
     public int score;
+    private int nextGesturePhase = 20;
 
     private bool paused = false;
 
@@ -108,9 +109,18 @@ public class StateManager : MonoBehaviour
                 pauseMenu.gameObject.SetActive(true);
             }
         }
+        /*
+        if(score == nextGesturePhase)
+        {
+            nextGesturePhase += 20;
+            GesturePhase();
+        }
+        */
+    }
 
-        
-
+    private void GesturePhase()
+    {
+        spawner.SetActive(false);
     }
 
     private void ScoreIncrease()

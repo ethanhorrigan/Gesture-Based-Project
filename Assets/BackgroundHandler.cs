@@ -15,14 +15,18 @@ public class BackgroundHandler : MonoBehaviour
     public float speed;
     public float Xend;
     public float Xstart;
+    public static bool moving = true;
 
     private void Update()
     {
+        if (moving)
+        {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
             if (transform.position.x < Xend)
             {
                 Vector2 pos = new Vector2(Xstart, transform.position.y);
                 transform.position = pos;
             }
+        }
     }
 }

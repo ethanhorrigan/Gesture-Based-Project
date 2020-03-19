@@ -8,6 +8,7 @@ using VibrationType = Thalmic.Myo.VibrationType;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Assets._Scripts;
 
 public class StateManager : MonoBehaviour
 {
@@ -34,11 +35,6 @@ public class StateManager : MonoBehaviour
     // so that actions are only performed upon making them rather than every frame during
     // which they are active.
     private Pose _lastPose = Pose.Unknown;
-
-    private void Start()
-    {
-    }
-
 
     // Update is called once per frame.
     void Update()
@@ -94,6 +90,8 @@ public class StateManager : MonoBehaviour
             if (pauseMenu.gameObject.activeSelf)
             {
                 paused = false;
+                BackgroundHandler.moving = true;
+                EnemyHandler.moving = true;
                 pauseMenu.gameObject.SetActive(false);
                 scoreText.gameObject.SetActive(true);
                 spawner.SetActive(true);
@@ -102,10 +100,12 @@ public class StateManager : MonoBehaviour
             else
             {
                 paused = true;
-                pauseMenu.gameObject.SetActive(true);
+                BackgroundHandler.moving = false;
+                EnemyHandler.moving = false;
                 scoreText.gameObject.SetActive(false);
                 spawner.SetActive(false);
                 playerObject.SetActive(false);
+                pauseMenu.gameObject.SetActive(true);
             }
         }
 

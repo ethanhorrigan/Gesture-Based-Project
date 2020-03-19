@@ -5,10 +5,14 @@ using UnityEngine;
 public class EnemyHandler : MonoBehaviour
 {
     public float speed;
+    public static bool moving = true;
 
     void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        if (moving)
+        {
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

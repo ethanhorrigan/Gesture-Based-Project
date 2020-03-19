@@ -19,8 +19,11 @@ public class KeyHandler : MonoBehaviour
 
     // Values to correspond with Pose Images.
     private int[] PoseValues;
+    private Pose[] poses;
 
     public static int[] KeyOrder;
+
+    private bool[] locks;
 
     // An array of images of myo poses.
     public Sprite[] PoseImages;
@@ -30,6 +33,7 @@ public class KeyHandler : MonoBehaviour
     {
         PoseValues = new int[Random.Range(2,6)];
         KeyOrder = new int[PoseValues.Length];
+        locks = new bool[PoseValues.Length];
 
         for(int i = 0; i < PoseValues.Length; i++)
         {
@@ -60,19 +64,54 @@ public class KeyHandler : MonoBehaviour
 
             }
         }
-        Debug.Log("Printing out key order");
-        for(int i = 0; i < KeyOrder.Length; i++)
-        {
-            Debug.Log(KeyOrder[i]);
-        }
-        Debug.Log("printed out key order");
-        Debug.Log(PoseValues.Length.ToString());
+
+        poses = CreatePassword(KeyOrder);
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        // Access the ThalmicMyo component attached to the Myo game object.
+        ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
         
+        // Look for myo poses 
+    }
+
+    // Creates an array of poses used as a password.
+    private Pose[] CreatePassword(int[] passwordOrder)
+    {
+        for(int i = 0; i < locks.Length; i++)
+        {
+            locks[i] = false;
+        }
+
+        Pose[] passwordPoses;
+
+        passwordPoses = new Pose[passwordOrder.Length];
+
+        for(int i = 0; i < passwordOrder.Length; i++)
+        {
+            switch (passwordOrder[i])
+            {
+                case 0:
+                    passwordPoses[i] = Pose.WaveIn;
+                    break;
+                case 1:
+                    passwordPoses[i] = Pose.WaveOut;
+                    break;
+                case 2:
+                    passwordPoses[i] = Pose.DoubleTap;
+                    break;
+                case 3:
+                    passwordPoses[i] = Pose.Fist;
+                    break;
+                case 4:
+                    passwordPoses[i] = Pose.FingersSpread;
+                    break;
+            }
+        }
+
+        return passwordPoses;
     }
 
     // Extend the unlock if ThalmcHub's locking policy is standard, and notifies the given myo that a user action was

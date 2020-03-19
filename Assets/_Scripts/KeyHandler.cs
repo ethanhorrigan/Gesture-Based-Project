@@ -20,38 +20,53 @@ public class KeyHandler : MonoBehaviour
     // Values to correspond with Pose Images.
     private int[] PoseValues;
 
+    public static int[] KeyOrder;
+
     // An array of images of myo poses.
     public Sprite[] PoseImages;
 
     // Start is called before the first frame update
     void Start()
     {
-        PoseValues = new int[5];
+        PoseValues = new int[Random.Range(2,6)];
+        KeyOrder = new int[PoseValues.Length];
 
         for(int i = 0; i < PoseValues.Length; i++)
         {
-            PoseValues[i] = Random.Range(0, 6);
+            PoseValues[i] = Random.Range(1, 6);
 
             switch (PoseValues[i])
             {
-                case 0:
-                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.WAVE_LEFT];
-                    break;
                 case 1:
-                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.WAVE_RIGHT];
+                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.WAVE_LEFT];
+                    KeyOrder[i] = Constants.WAVE_LEFT;
                     break;
                 case 2:
-                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.DOUBLE_TAP];
+                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.WAVE_RIGHT];
+                    KeyOrder[i] = Constants.WAVE_RIGHT;
                     break;
                 case 3:
-                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.FIST];
+                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.DOUBLE_TAP];
+                    KeyOrder[i] = Constants.DOUBLE_TAP;
                     break;
                 case 4:
+                    transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.FIST];
+                    KeyOrder[i] = Constants.FIST;
+                    break;
+                case 5:
                     transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = PoseImages[Constants.SPREAD];
+                    KeyOrder[i] = Constants.SPREAD;
                     break;
 
             }
         }
+        Debug.Log("Printing out key order");
+        for(int i = 0; i < KeyOrder.Length; i++)
+        {
+            Debug.Log(KeyOrder[i]);
+        }
+        Debug.Log("printed out key order");
+        Debug.Log(PoseValues.Length.ToString());
     }
 
     // Update is called once per frame

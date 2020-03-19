@@ -24,7 +24,7 @@ public class StateManager : MonoBehaviour
     public Text scoreText;
     public float timer;
     public int score;
-    private int nextGesturePhase = 20;
+    private int nextGesturePhase = 5;
 
     private bool paused = false;
 
@@ -112,7 +112,7 @@ public class StateManager : MonoBehaviour
         
         if(score == nextGesturePhase)
         {
-            nextGesturePhase += 20;
+            nextGesturePhase += 5;
             Spawner.gesturePhase = true;
         }
         

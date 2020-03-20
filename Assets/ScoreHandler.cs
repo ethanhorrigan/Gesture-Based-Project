@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreHandler : MonoBehaviour
 {
     public Text scoreText;
-    private int score = 0;
+    public int score = 0;
 
     /**
      * Added an Score Handler through a Trigger, So each enemy that is passed,
@@ -21,8 +21,9 @@ public class ScoreHandler : MonoBehaviour
     {
         if (!StateManager.paused)
         {
-            score++;
+            
             Destroy(other.gameObject);
+            score++;
             scoreText.text = score.ToString();
         }
     }

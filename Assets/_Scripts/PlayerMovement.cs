@@ -13,8 +13,13 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject playerPFX;
 
+    public AudioClip jumpSFX;
+    AudioSource audioSource;
+
     void Start()
     {
+        //get the audio source component
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.Find("Player");
         lanes = GameObject.Find("Lanes");
 
@@ -29,12 +34,14 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Go UP");
             cameraAnim.SetTrigger("shake");
+            audioSource.PlayOneShot(jumpSFX);
             GoUpLane();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Go DOWN");
             cameraAnim.SetTrigger("shake");
+            audioSource.PlayOneShot(jumpSFX);
             GoDownLane();
         }
 

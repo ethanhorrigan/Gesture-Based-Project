@@ -7,6 +7,16 @@ public class ScoreHandler : MonoBehaviour
 {
     public Text scoreText;
     private int score = 0;
+
+    /**
+     * Added an Score Handler through a Trigger, So each enemy that is passed,
+     * the score will increase.
+     * 
+     * This way of managing the score feels better than the previous.
+     * Instead of score being based off time, score is based off the amount of
+     * enemies that the player has passed.
+     * 
+     */
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!StateManager.paused)
@@ -14,7 +24,6 @@ public class ScoreHandler : MonoBehaviour
             score++;
             Destroy(other.gameObject);
             scoreText.text = score.ToString();
-
         }
     }
 }

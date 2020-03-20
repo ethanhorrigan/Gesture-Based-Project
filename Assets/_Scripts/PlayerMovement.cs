@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject lanes;
 
     private GameObject topLane, midLane, botLane;
+    public Animator cameraAnim;
 
 
     void Start()
@@ -26,11 +27,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             Debug.Log("Go UP");
+            cameraAnim.SetTrigger("shake");
             GoUpLane();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Go DOWN");
+            cameraAnim.SetTrigger("shake");
             GoDownLane();
         }
 

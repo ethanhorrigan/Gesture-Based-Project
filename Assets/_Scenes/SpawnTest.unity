@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 257644430}
   - component: {fileID: 257644429}
   - component: {fileID: 257644428}
+  - component: {fileID: 257644431}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -209,6 +210,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &257644431
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257644427}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fb0e7117e28b3645b80ac3ab08ddf9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &615951144
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbb90491b3d73e49b42cff17f0494a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraAnim: {fileID: 257644431}
 --- !u!212 &752917292
 SpriteRenderer:
   m_ObjectHideFlags: 0

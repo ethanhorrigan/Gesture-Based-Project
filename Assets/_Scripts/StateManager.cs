@@ -21,12 +21,12 @@ public class StateManager : MonoBehaviour
     public GameObject spawner;
     public GameObject playerObject;
 
-    public Text scoreText;
+    
     public float timer;
-    public int score;
+
     private int nextGesturePhase = 5;
 
-    private bool paused = false;
+    public static bool paused = false;
 
 
     public Player player;
@@ -48,8 +48,6 @@ public class StateManager : MonoBehaviour
             deathMenu.gameObject.SetActive(true);
             Destroy(playerObject);
         }
-
-        ScoreIncrease();
 
         // Check if the pose has changed since last update.
         // The ThalmicMyo component of a Myo game object has a pose property that is set to the
@@ -94,7 +92,6 @@ public class StateManager : MonoBehaviour
                 BackgroundHandler.moving = true;
                 EnemyHandler.moving = true;
                 pauseMenu.gameObject.SetActive(false);
-                scoreText.gameObject.SetActive(true);
                 spawner.SetActive(true);
                 playerObject.SetActive(true);
             }
@@ -103,44 +100,20 @@ public class StateManager : MonoBehaviour
                 paused = true;
                 BackgroundHandler.moving = false;
                 EnemyHandler.moving = false;
-                scoreText.gameObject.SetActive(false);
                 spawner.SetActive(false);
                 playerObject.SetActive(false);
                 pauseMenu.gameObject.SetActive(true);
             }
         }
         
-        if(score == nextGesturePhase)
-        {
-            nextGesturePhase += 5;
-            Spawner.gesturePhase = true;
-        }
+        //if(score == nextGesturePhase)
+        //{
+        //    nextGesturePhase += 5;
+        //    Spawner.gesturePhase = true;
+        //}
         
     }
 
-    private void ScoreIncrease()
-    { 
-        if (!paused)
-        {
-            timer += Time.deltaTime;
-            if (timer > 5f)
-            {
-
-                score += 5;
-
-                //We only need to update the text if the score changed.
-                scoreText.text = score.ToString();
-
-                //Reset the timer to 0.
-                timer = 0;
-            }
-        }
-         
-        if (player.health == 0)
-        {
-            scoreText.text = "";
-        }
-    }
 
     // Extend the unlock if ThalmcHub's locking policy is standard, and notifies the given myo that a user action was
     // recognized.

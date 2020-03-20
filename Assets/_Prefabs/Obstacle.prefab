@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  enemyPFX: {fileID: 317692316238295063, guid: 74940314e28a8b14cb832d91480bc1ba, type: 3}
 --- !u!114 &-5066249461173292282
 MonoBehaviour:
   m_ObjectHideFlags: 0

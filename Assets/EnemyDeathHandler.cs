@@ -13,6 +13,7 @@ public class EnemyDeathHandler : MonoBehaviour
     /// 
 
     public float lifespan; //a float variable to set how long the enemies lifespan is.
+   
     void Start()
     {
         Destroy(gameObject, lifespan);

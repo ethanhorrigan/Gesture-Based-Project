@@ -6,7 +6,7 @@ public class EnemyHandler : MonoBehaviour
 {
     public float speed;
     public static bool moving = true;
-
+    public GameObject enemyPFX;
     void Update()
     {
         if (moving)
@@ -21,6 +21,7 @@ public class EnemyHandler : MonoBehaviour
         {
             other.GetComponent<Player>().health--;
             Destroy(gameObject);
+            Instantiate(enemyPFX, gameObject.transform.position, Quaternion.identity);
         }
     }
 }

@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject topLane, midLane, botLane;
     public Animator cameraAnim;
 
+    public GameObject playerPFX;
 
     void Start()
     {
@@ -38,20 +39,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
     private void GoDownLane()
     {
         if (player.transform.position == topLane.transform.position)
         {
             player.transform.position = midLane.transform.position;
+            Instantiate(playerPFX, midLane.transform.position, Quaternion.identity);
         }
         else if (player.transform.position == midLane.transform.position)
         {
             player.transform.position = botLane.transform.position;
+            Instantiate(playerPFX, botLane.transform.position, Quaternion.identity);
         }
         else
         {
             player.transform.position = botLane.transform.position;
+            Instantiate(playerPFX, botLane.transform.position, Quaternion.identity);
         }
     }
 
@@ -60,14 +63,17 @@ public class PlayerMovement : MonoBehaviour
         if (player.transform.position == botLane.transform.position)
         {
             player.transform.position = midLane.transform.position;
+            Instantiate(playerPFX, midLane.transform.position, Quaternion.identity);
         }
         else if (player.transform.position == midLane.transform.position)
         {
             player.transform.position = topLane.transform.position;
+            Instantiate(playerPFX, topLane.transform.position, Quaternion.identity);
         }
         else
         {
             player.transform.position = topLane.transform.position;
+            Instantiate(playerPFX, topLane.transform.position, Quaternion.identity);
         }
     }
 

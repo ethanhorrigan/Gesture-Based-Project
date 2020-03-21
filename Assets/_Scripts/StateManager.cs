@@ -24,7 +24,7 @@ public class StateManager : MonoBehaviour
     
     public float timer;
 
-    private int nextGesturePhase = 5;
+    private int nextGesturePhase = 4;
 
     public static bool paused = false;
 
@@ -106,11 +106,11 @@ public class StateManager : MonoBehaviour
             }
         }
         
-        //if(score == nextGesturePhase)
-        //{
-        //    nextGesturePhase += 5;
-        //    Spawner.gesturePhase = true;
-        //}
+        if(ScoreHandler.score > nextGesturePhase)
+        {
+            nextGesturePhase += 4;
+            Spawner.gesturePhase = true;
+        }
         
     }
 

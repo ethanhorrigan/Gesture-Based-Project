@@ -18,31 +18,39 @@ public class Spawner : MonoBehaviour
     public GameObject[] obstacles;
 
     public static bool gesturePhase = false;
+    public bool spawnedKey = false;
 
     private void Start()
     {
         timeBetweenSpawns = startTimeBetweenSpawns;
-        key.SetActive(false);
     }
 
     private void Update()
     {
         if (!gesturePhase)
         {
+            spawnedKey = false;
             SpawnEnimies();
         }
-        else
+        else if (gesturePhase && !spawnedKey)
         {
-            SpawnKey();
+            spawnedKey = true;
+            SpawnGesturePhase();
         }
-
     }
 
-    public void SpawnKey()
+    public void SpawnGesturePhase()
     {
-        key.SetActive(true);
+        // Spawn in a password
+        Instantiate(key, new Vector2(40, 2), Quaternion.identity);
 
         // Once finished set gesturephase to false
+        //GesturePhaseOver();
+    }
+
+    private void GesturePhaseOver()
+    {
+        gesturePhase = false;
     }
 
     private void SpawnEnimies()

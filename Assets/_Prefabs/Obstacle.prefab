@@ -15,8 +15,13 @@ GameObject:
   - component: {fileID: 1194254617426807969}
   - component: {fileID: 2429891527833037360}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: Obstacle 1
   m_TagString: Untagged
+=======
+  m_Name: Obstacle
+  m_TagString: Enemy
+>>>>>>> 37c408f5a83121c1d890d42cf33fa60ea5a9b99d
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

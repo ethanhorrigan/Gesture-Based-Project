@@ -56,16 +56,12 @@ public class PlayerMovementMyo : MonoBehaviour
 
             if (thalmicMyo.pose == Pose.WaveIn)
             {
-                thalmicMyo.Vibrate(VibrationType.Medium);
-
                 GoDownLane();
 
                 ExtendUnlockAndNotifyUserAction(thalmicMyo);
             }
             else if (thalmicMyo.pose == Pose.WaveOut)
             {
-                thalmicMyo.Vibrate(VibrationType.Medium);
-
                 GoUpLane();
 
                 ExtendUnlockAndNotifyUserAction(thalmicMyo);

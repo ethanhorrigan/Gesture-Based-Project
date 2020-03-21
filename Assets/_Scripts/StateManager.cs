@@ -62,16 +62,24 @@ public class StateManager : MonoBehaviour
             
         }
 
-        if (thalmicMyo.pose == Pose.DoubleTap || Input.GetKeyDown(KeyCode.T))
+        if (thalmicMyo.pose == Pose.DoubleTap)
         {
-            thalmicMyo.Vibrate(VibrationType.Medium);
-
             if (pauseMenu.gameObject.activeSelf)
             {
+                paused = false;
+                BackgroundHandler.moving = true;
+                EnemyHandler.moving = true;
                 pauseMenu.gameObject.SetActive(false);
+                spawner.SetActive(true);
+                playerObject.SetActive(true);
             }
             else
             {
+                paused = true;
+                BackgroundHandler.moving = false;
+                EnemyHandler.moving = false;
+                spawner.SetActive(false);
+                playerObject.SetActive(false);
                 pauseMenu.gameObject.SetActive(true);
             }
 

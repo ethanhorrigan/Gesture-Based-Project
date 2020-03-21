@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ScoreHandler : MonoBehaviour
 {
     public Text scoreText;
-    public int score = 0;
+    public static int score = 0;
+    public static int gestureCount = 0;
 
     /**
      * Added an Score Handler through a Trigger, So each enemy that is passed,
@@ -21,10 +22,19 @@ public class ScoreHandler : MonoBehaviour
     {
         if (!StateManager.paused)
         {
-            
-            Destroy(other.gameObject);
-            score++;
-            scoreText.text = score.ToString();
+            if(other.gameObject.tag == "Enemy")
+            {
+                Destroy(other.gameObject);
+                score++;
+                scoreText.text = score.ToString();
+            }
+            else
+            {
+                Destroy(other.gameObject);
+                gestureCount++;
+                Spawner.gesturePhase = false;
+            }
+           
         }
     }
 }

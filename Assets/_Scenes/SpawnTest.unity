@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1115283618}
-  score: 0
 --- !u!50 &256480257
 Rigidbody2D:
   serializedVersion: 4
@@ -403,7 +402,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 85a1c77a904a8744d9cd350b64b8f154, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.572
+  m_Volume: 0.225
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1654,6 +1653,7 @@ MonoBehaviour:
   - {fileID: 7235060402073821428, guid: fe447651a738b7b4eb1d5f2d1f35fa10, type: 3}
   - {fileID: 8037735654393462393, guid: 8f3eccd87bb54b94c8b58cc51c30867a, type: 3}
   - {fileID: 5851739702662065538, guid: 72974832c816cdb4d9c5e9c68fce9bec, type: 3}
+  spawnedKey: 0
 --- !u!4 &1600082792
 Transform:
   m_ObjectHideFlags: 0

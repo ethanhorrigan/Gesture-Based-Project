@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
             GoDownLane();
         }
 
+        print(Input.GetKeyDown(KeyCode.Return));
     }
     private void GoDownLane()
     {

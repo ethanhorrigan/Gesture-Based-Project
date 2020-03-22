@@ -8,7 +8,6 @@ using VibrationType = Thalmic.Myo.VibrationType;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Assets._Scripts;
 
 public class StateManager : MonoBehaviour
 {
@@ -30,6 +29,7 @@ public class StateManager : MonoBehaviour
 
 
     public Player player;
+    public int pauseTimer;
 
  
     // The pose from the last update. This is used to determine if the pose has changed
@@ -62,7 +62,7 @@ public class StateManager : MonoBehaviour
             
         }
 
-        if (thalmicMyo.pose == Pose.DoubleTap)
+        if (thalmicMyo.pose == Pose.Fist)
         {
             if (pauseMenu.gameObject.activeSelf)
             {

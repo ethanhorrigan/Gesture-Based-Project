@@ -12,22 +12,31 @@ There are 3 lanes. Top, Mid and Botlane. You can move from one lane to another u
 ## Built With
 
 * [Unity](https://unity.com/) - Game Engine used
-* [C#](https://maven.apache.org/) - Scripting
+* [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) - Scripting
+* [Myo](https://support.getmyo.com/hc/en-us) - Armband used to incorporate gestures into game
 
 ## Authors
 
-* **Ethan Horrigan** - *Developer* - [Ethan](https://github.com/ethanhorrigan)
-* **Dylan Loftus** - *Developer* - [Dylan](https://github.com/dylanloftus)
+* **Ethan Horrigan** - *G00350712* - *Developer* - [GitHub](https://github.com/ethanhorrigan)
+* **Dylan Loftus** - *G00347849* - *Developer* - [GitHub](https://github.com/dylanloftus)
 
 ## Inspiration and Research
 
-## Games
+### Games
 * [Temple Run](https://play.google.com/store/apps/details?id=com.imangi.templerun&hl=en)
 * [Crossy Road](https://poki.com/en/g/crossy-road)
 
-## Info on 2D endless runners
-* [Temple Run](https://en.wikipedia.org/wiki/Temple_Run)
-* [Crossy Road](https://en.wikipedia.org/wiki/Crossy_Road)
+### Info on 2D endless runners
+* [Temple Run - Wikipedia](https://en.wikipedia.org/wiki/Temple_Run)
+* [Crossy Road - Wikipedia](https://en.wikipedia.org/wiki/Crossy_Road)
+
+## Video Links
+
+## How to Run
+* Clone this repository
+* Download the Myo SDK (Connect App)
+* Open the Unity Project on Main Menu Scene
+* Press Play
 
 
 

@@ -19,3 +19,15 @@ There are 3 lanes. Top, Mid and Botlane. You can move from one lane to another u
 * **Ethan Horrigan** - *Developer* - [Ethan](https://github.com/ethanhorrigan)
 * **Dylan Loftus** - *Developer* - [Dylan](https://github.com/dylanloftus)
 
+## Inspiration and Research
+
+## Games
+* [Temple Run](https://play.google.com/store/apps/details?id=com.imangi.templerun&hl=en)
+* [Crossy Road](https://poki.com/en/g/crossy-road)
+
+## Info on 2D endless runners
+* [Temple Run](https://en.wikipedia.org/wiki/Temple_Run)
+* [Crossy Road](https://en.wikipedia.org/wiki/Crossy_Road)
+
+
+

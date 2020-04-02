@@ -33,20 +33,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("Go UP");
             cameraAnim.SetTrigger("shake");
             audioSource.PlayOneShot(jumpSFX);
             GoUpLane();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("Go DOWN");
             cameraAnim.SetTrigger("shake");
             audioSource.PlayOneShot(jumpSFX);
             GoDownLane();
         }
-
-        print(Input.GetKeyDown(KeyCode.Return));
     }
     private void GoDownLane()
     {

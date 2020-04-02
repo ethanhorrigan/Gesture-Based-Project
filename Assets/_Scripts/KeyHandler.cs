@@ -12,8 +12,6 @@ public class KeyHandler : MonoBehaviour
     // This object must have a ThalmicMyo script attached.
     private GameObject myo = null;
     private GameObject hub;
-
-    private Transform[] lockTransforms;
     // The pose from the last update. This is used to determine if the pose has changed
     // so that actions are only performed upon making them rather than every frame during
     // which they are active.
@@ -23,15 +21,17 @@ public class KeyHandler : MonoBehaviour
     private int[] PoseLength;
     private Pose[] poses;
 
-    public static int[] KeyOrder;
-
+    // The speed that the pictures move accross the screen.
     private float speed = 4.0f;
 
     // An array of images of myo poses.
     public Sprite[] PoseImages;
 
+    // Counters for the TryPassword function.
     private int correctGestureCount = 0;
+    private int currentPose = 0;
 
+    // Bool to
     public static bool endPhase = false;
 
     // Start is called before the first frame update
@@ -43,8 +43,7 @@ public class KeyHandler : MonoBehaviour
         PoseLength = new int[Random.Range(2,6)];
         poses = new Pose[PoseLength.Length];
 
-        lockTransforms = GetComponentsInChildren<Transform>();
-
+        // Populate poses array and set pose images.
         for (int i = 0; i < PoseLength.Length; i++)
         {
             PoseLength[i] = Random.Range(1, 6);
@@ -85,37 +84,37 @@ public class KeyHandler : MonoBehaviour
         // Move the password
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
+        // Check to see if the pose the user is doing is the same as the current pose in the array.
         TryPassword(poses);
 
-        // Check if all the locks are true, if they are the gesture phase is ended.
+        // Check if the amount of correct gestures is the same as the length of the password, if they are the gesture phase is ended.
         if (correctGestureCount == poses.Length)
         {
             Spawner.gesturePhase = false;
             Debug.Log("All locks true");
             Destroy(this);
         }
-
+        
         if (ScoreHandler.gestureCount > 0)
         {
             transform.gameObject.SetActive(false);
             ScoreHandler.gestureCount = 0;
         }
+        
     }
 
-    // Takes in password and locks, checks to see if the user's pose matches the pose in the password array
+    // Takes in password andchecks to see if the user's pose matches the pose in the password array
     // before moving onto the next gesture.
     private void TryPassword(Pose[] poses)
     {
-        int currentPose = 0;
         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
         // Don't move onto the next lock until the current one has been unlocked.
         if (thalmicMyo.pose == poses[currentPose])
         {
-            lockTransforms[currentPose].gameObject.SetActive(false);
-            currentPose++;
+            transform.GetChild(currentPose).gameObject.SetActive(false);
             correctGestureCount++;
+            currentPose++;
         }
-
     }
 
     // Extend the unlock if ThalmcHub's locking policy is standard, and notifies the given myo that a user action was

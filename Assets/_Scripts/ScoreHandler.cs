@@ -10,6 +10,7 @@ public class ScoreHandler : MonoBehaviour
     public static int gestureCount = 0;
     public AudioClip hurtSound;
     AudioSource audioSource;
+    private GameObject player;
     
 
     /**
@@ -25,6 +26,7 @@ public class ScoreHandler : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        player = GameObject.Find("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -44,7 +46,7 @@ public class ScoreHandler : MonoBehaviour
                 Destroy(other.gameObject);
                 gestureCount++;
                 Spawner.gesturePhase = false;
-                other.GetComponent<Player>().health--;
+                player.GetComponent<Player>().health--;
             }
            
         }

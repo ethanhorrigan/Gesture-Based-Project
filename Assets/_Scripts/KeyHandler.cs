@@ -31,7 +31,7 @@ public class KeyHandler : MonoBehaviour
     private int correctGestureCount = 0;
     private int currentPose = 0;
 
-    // Bool to
+    // Bool to end the gesture phase.
     public static bool endPhase = false;
 
     // Start is called before the first frame update

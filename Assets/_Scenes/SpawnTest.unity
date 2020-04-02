@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &24321653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &114466284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1115283618}
-  audioSource: {fileID: 256480260}
   hurtSound: {fileID: 8300000, guid: 794b7410b0c8cea43a2a4e77142c1900, type: 3}
 --- !u!50 &256480257
 Rigidbody2D:
@@ -825,7 +824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &571071722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,6 +1257,7 @@ MonoBehaviour:
   playerPFX: {fileID: 5997984900608982717, guid: ad31b25f81ff2084ab4c7c14c009842b,
     type: 3}
   jumpSFX: {fileID: 8300000, guid: c421ee512d5cb2949b32eb7c47512aa2, type: 3}
+  hurtSound: {fileID: 8300000, guid: 794b7410b0c8cea43a2a4e77142c1900, type: 3}
 --- !u!212 &752917292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1961,7 +1961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1214266333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,7 +2072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1253062454
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerPFX;
 
     public AudioClip jumpSFX;
+    public AudioClip hurtSound;
     AudioSource audioSource;
 
     void Start()
@@ -92,6 +93,9 @@ public class PlayerMovement : MonoBehaviour
         botLane = lanes.transform.Find("LaneBottom").gameObject;
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        audioSource.PlayOneShot(hurtSound);
+    }
 
 }

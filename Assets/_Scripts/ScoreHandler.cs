@@ -8,6 +8,9 @@ public class ScoreHandler : MonoBehaviour
     public Text scoreText;
     public static int score = 0;
     public static int gestureCount = 0;
+    public AudioClip hurtSound;
+    AudioSource audioSource;
+    
 
     /**
      * Added an Score Handler through a Trigger, So each enemy that is passed,
@@ -17,9 +20,16 @@ public class ScoreHandler : MonoBehaviour
      * Instead of score being based off time, score is based off the amount of
      * enemies that the player has passed.
      * 
-     */
+    */
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (!StateManager.paused)
         {
             if(other.gameObject.tag == "Enemy")
@@ -30,9 +40,11 @@ public class ScoreHandler : MonoBehaviour
             }
             else
             {
+                audioSource.PlayOneShot(hurtSound);
                 Destroy(other.gameObject);
                 gestureCount++;
                 Spawner.gesturePhase = false;
+                other.GetComponent<Player>().health--;
             }
            
         }

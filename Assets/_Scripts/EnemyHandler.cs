@@ -7,6 +7,7 @@ public class EnemyHandler : MonoBehaviour
     public float speed;
     public static bool moving = true;
     public GameObject enemyPFX;
+
     void Update()
     {
         if (moving)

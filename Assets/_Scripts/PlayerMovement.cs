@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerPFX;
 
     public AudioClip jumpSFX;
+    public AudioClip hurtSound;
     AudioSource audioSource;
 
     void Start()
@@ -32,20 +33,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("Go UP");
             cameraAnim.SetTrigger("shake");
             audioSource.PlayOneShot(jumpSFX);
             GoUpLane();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("Go DOWN");
             cameraAnim.SetTrigger("shake");
             audioSource.PlayOneShot(jumpSFX);
             GoDownLane();
         }
-
-        print(Input.GetKeyDown(KeyCode.Return));
     }
     private void GoDownLane()
     {
@@ -92,6 +89,9 @@ public class PlayerMovement : MonoBehaviour
         botLane = lanes.transform.Find("LaneBottom").gameObject;
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        audioSource.PlayOneShot(hurtSound);
+    }
 
 }

@@ -26,8 +26,15 @@ public class PlayerMovementMyo : MonoBehaviour
     // which they are active.
     private Pose _lastPose = Pose.Unknown;
 
+    public GameObject playerPFX;
+    public Animator cameraAnim;
+    public AudioClip jumpSFX;
+    public AudioClip hurtSound;
+    AudioSource audioSource;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.Find("Player");
         lanes = GameObject.Find("Lanes");
 
@@ -56,12 +63,16 @@ public class PlayerMovementMyo : MonoBehaviour
 
             if (thalmicMyo.pose == Pose.WaveIn)
             {
+                cameraAnim.SetTrigger("shake");
+                audioSource.PlayOneShot(jumpSFX);
                 GoDownLane();
 
                 ExtendUnlockAndNotifyUserAction(thalmicMyo);
             }
             else if (thalmicMyo.pose == Pose.WaveOut)
             {
+                cameraAnim.SetTrigger("shake");
+                audioSource.PlayOneShot(jumpSFX);
                 GoUpLane();
 
                 ExtendUnlockAndNotifyUserAction(thalmicMyo);
@@ -74,14 +85,17 @@ public class PlayerMovementMyo : MonoBehaviour
         if (player.transform.position == topLane.transform.position)
         {
             player.transform.position = midLane.transform.position;
+            Instantiate(playerPFX, midLane.transform.position, Quaternion.identity);
         }
         else if (player.transform.position == midLane.transform.position)
         {
             player.transform.position = botLane.transform.position;
+            Instantiate(playerPFX, botLane.transform.position, Quaternion.identity);
         }
         else
         {
             player.transform.position = botLane.transform.position;
+            Instantiate(playerPFX, botLane.transform.position, Quaternion.identity);
         }
     }
 
@@ -90,14 +104,17 @@ public class PlayerMovementMyo : MonoBehaviour
         if (player.transform.position == botLane.transform.position)
         {
             player.transform.position = midLane.transform.position;
+            Instantiate(playerPFX, midLane.transform.position, Quaternion.identity);
         }
         else if (player.transform.position == midLane.transform.position)
         {
             player.transform.position = topLane.transform.position;
+            Instantiate(playerPFX, topLane.transform.position, Quaternion.identity);
         }
         else
         {
             player.transform.position = topLane.transform.position;
+            Instantiate(playerPFX, topLane.transform.position, Quaternion.identity);
         }
     }
 

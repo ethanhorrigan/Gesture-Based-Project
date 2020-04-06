@@ -116,7 +116,17 @@ public class StateManager : MonoBehaviour
                     scoreObject.SetActive(true);
                     inPlay = true;
                 }
-                break;
+                if (inPause)
+                {
+                    paused = false;
+                    inPause = false;
+                    BackgroundHandler.moving = true;
+                    EnemyHandler.moving = true;
+                    pauseMenu.gameObject.SetActive(false);
+                    spawner.SetActive(true);
+                    playerObject.SetActive(true);
+                }
+                    break;
             case "quit":
                 break;
         }

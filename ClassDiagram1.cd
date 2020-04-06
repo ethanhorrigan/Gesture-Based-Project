@@ -1,2 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BackgroundHandler">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\_Scripts\BackgroundHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraMovement">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\CameraMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyHandler">
+    <Position X="8.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAAAAAAAAAAAAAAAAEAAAQAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\EnemyHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyHandler">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggAAAAgACCAAAAAAABAAKAAAQAAAAQQAADAAAAAEAAA=</HashCode>
+      <FileName>Assets\_Scripts\KeyHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="11" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\_Scripts\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerMovementMyo">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAQAACAAAAAAABAAAAAAAwoAAAQBAhAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\PlayerMovementMyo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreHandler">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQBAAAAIAAAAAEAAEAABAAAAAAAgAAA=</HashCode>
+      <FileName>Assets\_Scripts\ScoreHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spawner">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQEAAAAACCBAAAAAAAGACgAEAAAAAAAAAAQAAIAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Spawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpeechHandler">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgSAABABACAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\SpeechHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateManager">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgSABBBBACAABAACAAAQgAAABACAQABBACAAAAAAIAA=</HashCode>
+      <FileName>Assets\_Scripts\StateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

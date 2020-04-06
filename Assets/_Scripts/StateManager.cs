@@ -19,6 +19,7 @@ using System.IO;
  * Pausing and Continueing a game is done through speech.
  * Adapted from: https://docs.unity3d.com/ScriptReference/Windows.Speech.KeywordRecognizer.html
  * 
+ * 
  * Names Dataset: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/
  * 
  * Authors: 
@@ -32,8 +33,10 @@ public class StateManager : MonoBehaviour
     public GameObject deathMenu;
     public GameObject spawner;
     public GameObject playerObject;
+    public GameObject scoreObject;
 
     private bool inPause = false;
+    private bool inPlay = false;
     public float timer;
 
     private int nextGesturePhase = 4;
@@ -105,6 +108,13 @@ public class StateManager : MonoBehaviour
             case "play":
                 if(player.health == 0)
                     SceneManager.LoadSceneAsync("SpawnTest", LoadSceneMode.Single);
+                if (!inPlay)
+                {
+                    spawner.SetActive(true);
+                    playerObject.SetActive(true);
+                    scoreObject.SetActive(true);
+                    inPlay = true;
+                }
                 break;
             case "quit":
                 break;

@@ -8,40 +8,57 @@ using VibrationType = Thalmic.Myo.VibrationType;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Windows.Speech;
 
+/**
+ * 
+ * Statemanager class handles the current state of the game.
+ * These states include, Play State, Pause State and Death State.
+ *
+ * Pausing and Continueing a game is done through speech.
+ * Adapted from: https://docs.unity3d.com/ScriptReference/Windows.Speech.KeywordRecognizer.html
+ * 
+ * Authors: 
+ * Ethan Horrigan
+ * Dylan Loftus
+ * 
+ */
 public class StateManager : MonoBehaviour
 {
-    // Myo game object to connect with.
-    // This object must have a ThalmicMyo script attached.
-    public GameObject myo = null;
-
     public GameObject pauseMenu;
     public GameObject deathMenu;
     public GameObject spawner;
     public GameObject playerObject;
 
-    
+    private bool inPause = false;
     public float timer;
 
     private int nextGesturePhase = 4;
 
     public static bool paused = false;
-
-
     public Player player;
     public int pauseTimer;
 
- 
-    // The pose from the last update. This is used to determine if the pose has changed
-    // so that actions are only performed upon making them rather than every frame during
-    // which they are active.
-    private Pose _lastPose = Pose.Unknown;
+    /* Speech Recognition Variables */
+    protected PhraseRecognizer recognizer;
+    public string[] keywords = new string[] { "pause", "play", "continue", "quit" };
+    public ConfidenceLevel confidence = ConfidenceLevel.Medium;
+    protected string word;
+    /* End of Speech Recognition Variables */
 
-    // Update is called once per frame.
+
+    void Start()
+    {
+        if (keywords != null)
+        {
+            recognizer = new KeywordRecognizer(keywords, confidence);
+            recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
+            recognizer.Start();
+        }
+    }
     void Update()
     {
         // Access the ThalmicMyo component attached to the Myo game object.
-        ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
         if (player.health <= 0)
         {
             spawner.SetActive(false);
@@ -49,44 +66,41 @@ public class StateManager : MonoBehaviour
             Destroy(playerObject);
         }
 
-        // Check if the pose has changed since last update.
-        // The ThalmicMyo component of a Myo game object has a pose property that is set to the
-        // currently detected pose (e.g. Pose.Fist for the user making a fist). If no pose is currently
-        // detected, pose will be set to Pose.Rest. If pose detection is unavailable, e.g. because Myo
-        // is not on a user's arm, pose will be set to Pose.Unknown.
-        if (thalmicMyo.pose != _lastPose)
+        switch(word)
         {
-            _lastPose = thalmicMyo.pose;
-
-
-            
+            case "pause":
+                if (!inPause)
+                {
+                    paused = true;
+                    inPause = true;
+                    BackgroundHandler.moving = false;
+                    EnemyHandler.moving = false;
+                    spawner.SetActive(false);
+                    playerObject.SetActive(false);
+                    pauseMenu.gameObject.SetActive(true);
+                }
+                break;
+            case "continue":
+                if(inPause)
+                {
+                    paused = false;
+                    inPause = false;
+                    BackgroundHandler.moving = true;
+                    EnemyHandler.moving = true;
+                    pauseMenu.gameObject.SetActive(false);
+                    spawner.SetActive(true);
+                    playerObject.SetActive(true);
+                }
+                break;
+            case "play":
+                if(player.health == 0)
+                    SceneManager.LoadSceneAsync("SpawnTest", LoadSceneMode.Single);
+                break;
+            case "quit":
+                break;
         }
 
-        if (thalmicMyo.pose == Pose.Fist)
-        {
-            if (pauseMenu.gameObject.activeSelf)
-            {
-                paused = false;
-                BackgroundHandler.moving = true;
-                EnemyHandler.moving = true;
-                pauseMenu.gameObject.SetActive(false);
-                spawner.SetActive(true);
-                playerObject.SetActive(true);
-            }
-            else
-            {
-                paused = true;
-                BackgroundHandler.moving = false;
-                EnemyHandler.moving = false;
-                spawner.SetActive(false);
-                playerObject.SetActive(false);
-                pauseMenu.gameObject.SetActive(true);
-            }
-
-            ExtendUnlockAndNotifyUserAction(thalmicMyo);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R) || thalmicMyo.pose == Pose.FingersSpread && player.health == 0)
+        if (Input.GetKeyDown(KeyCode.R) && player.health == 0)
         {
             Debug.Log("fingers spread");
             SceneManager.LoadSceneAsync("SpawnTest", LoadSceneMode.Single);
@@ -122,19 +136,19 @@ public class StateManager : MonoBehaviour
         
     }
 
-
-    // Extend the unlock if ThalmcHub's locking policy is standard, and notifies the given myo that a user action was
-    // recognized.
-    void ExtendUnlockAndNotifyUserAction(ThalmicMyo myo)
+    private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
-        ThalmicHub hub = ThalmicHub.instance;
+        word = args.text;
+        Debug.Log(word);
+    }
 
-        if (hub.lockingPolicy == LockingPolicy.Standard)
+    private void OnApplicationQuit()
+    {
+        if (recognizer != null && recognizer.IsRunning)
         {
-            myo.Unlock(UnlockType.Timed);
+            recognizer.OnPhraseRecognized -= Recognizer_OnPhraseRecognized;
+            recognizer.Stop();
         }
-
-        myo.NotifyUserAction();
     }
 
 

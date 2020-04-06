@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 257644428}
   - component: {fileID: 257644431}
   - component: {fileID: 257644432}
+  - component: {fileID: 257644433}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -806,6 +807,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &257644433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257644427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075c061bd5b2ebe4c846098019224324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keywords:
+  - pause
+  - play
+  - continue
+  - quit
+  confidence: 1
 --- !u!1 &571071721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,7 +2532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9429b1d7fe4714d8bf56b5999d3a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myo: {fileID: 1426193613}
   pauseMenu: {fileID: 1632687498}
   deathMenu: {fileID: 1151023734}
   spawner: {fileID: 1600082790}
@@ -2521,6 +2539,12 @@ MonoBehaviour:
   timer: 0
   player: {fileID: 752917294}
   pauseTimer: 0
+  keywords:
+  - pause
+  - play
+  - continue
+  - quit
+  confidence: 1
 --- !u!4 &2065383999
 Transform:
   m_ObjectHideFlags: 0

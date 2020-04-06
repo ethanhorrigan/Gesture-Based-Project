@@ -9,6 +9,7 @@ using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
+using System.IO;
 
 /**
  * 
@@ -17,6 +18,8 @@ using UnityEngine.Windows.Speech;
  *
  * Pausing and Continueing a game is done through speech.
  * Adapted from: https://docs.unity3d.com/ScriptReference/Windows.Speech.KeywordRecognizer.html
+ * 
+ * Names Dataset: http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/
  * 
  * Authors: 
  * Ethan Horrigan
@@ -42,6 +45,8 @@ public class StateManager : MonoBehaviour
     /* Speech Recognition Variables */
     protected PhraseRecognizer recognizer;
     public string[] keywords = new string[] { "pause", "play", "continue", "quit" };
+    private string[] words;
+    //ArrayList words = new ArrayList();
     public ConfidenceLevel confidence = ConfidenceLevel.Medium;
     protected string word;
     /* End of Speech Recognition Variables */
@@ -49,12 +54,17 @@ public class StateManager : MonoBehaviour
 
     void Start()
     {
+        //var lines = File.ReadLines("Names.txt");
+
+        //words = File.ReadAllLines("Names.txt");
+
         if (keywords != null)
         {
             recognizer = new KeywordRecognizer(keywords, confidence);
             recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
             recognizer.Start();
         }
+        //Debug.Log(words[50]);
     }
     void Update()
     {

@@ -12,7 +12,8 @@ There are 3 lanes. Top, Mid and Botlane. You can move from one lane to another u
 
 ## Architecture
 
-![Recordit GIF](Images/Architecture.png)
+![A](Images/Architecture.png)
+![ClassUML](Images/ClassArchitecture.png)
 ## Built With
 
 * [Unity](https://unity.com/) - Game Engine used

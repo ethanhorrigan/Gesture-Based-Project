@@ -11,7 +11,7 @@ public class ScoreHandler : MonoBehaviour
     public AudioClip hurtSound;
     AudioSource audioSource;
     private GameObject player;
-    
+
 
     /**
      * Added an Score Handler through a Trigger, So each enemy that is passed,
@@ -34,7 +34,7 @@ public class ScoreHandler : MonoBehaviour
 
         if (!StateManager.paused)
         {
-            if(other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy")
             {
                 Destroy(other.gameObject);
                 score++;
@@ -48,7 +48,7 @@ public class ScoreHandler : MonoBehaviour
                 Spawner.gesturePhase = false;
                 player.GetComponent<Player>().health--;
             }
-           
+
         }
     }
 }

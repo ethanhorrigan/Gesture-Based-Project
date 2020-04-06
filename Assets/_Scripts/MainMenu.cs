@@ -6,7 +6,7 @@ using Pose = Thalmic.Myo.Pose;
 using UnlockType = Thalmic.Myo.UnlockType;
 using VibrationType = Thalmic.Myo.VibrationType;
 using UnityEngine.SceneManagement;
-public class MainMenu : MonoBehaviour
+public class MainMenu
 {
     //public GameObject myo = null;
 
@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

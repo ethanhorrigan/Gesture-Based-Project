@@ -84,6 +84,7 @@ public class StateManager : MonoBehaviour
             case "pause":
                 if (!inPause)
                 {
+                    inPlay = false;
                     paused = true;
                     inPause = true;
                     BackgroundHandler.moving = false;
@@ -108,7 +109,7 @@ public class StateManager : MonoBehaviour
             case "play":
                 if(player.health == 0)
                     SceneManager.LoadSceneAsync("SpawnTest", LoadSceneMode.Single);
-                if (!inPlay)
+                if (!inPlay && !inPause)
                 {
                     spawner.SetActive(true);
                     playerObject.SetActive(true);

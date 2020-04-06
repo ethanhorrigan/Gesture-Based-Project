@@ -1259,7 +1259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &752917291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,7 +1732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1115283617
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2335,7 +2335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1600082791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,6 +2536,7 @@ MonoBehaviour:
   deathMenu: {fileID: 1151023734}
   spawner: {fileID: 1600082790}
   playerObject: {fileID: 752917290}
+  scoreObject: {fileID: 1115283616}
   timer: 0
   player: {fileID: 752917294}
   pauseTimer: 0

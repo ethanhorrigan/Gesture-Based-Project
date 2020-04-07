@@ -54,7 +54,7 @@ public class ScoreHandler : MonoBehaviour
             {
                 audioSource.PlayOneShot(hurtSound);
                 Destroy(other.gameObject);
-                gestureCount++;
+                //gestureCount++;
                 Spawner.gesturePhase = false;
                 player.GetComponent<Player>().health--;
             }

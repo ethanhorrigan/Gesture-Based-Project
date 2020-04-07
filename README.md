@@ -37,6 +37,7 @@ There are 3 lanes. Top, Mid and Botlane. You can move from one lane to another u
 
 ## Video Links
 [Game Demo](https://youtu.be/s_3QLAiIcu0)
+[Repo Tour](https://youtu.be/h_XJWlG1SX0)
 
 ## How to Run
 * Clone this repository

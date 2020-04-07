@@ -1259,7 +1259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &752917291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,6 +1404,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myo: {fileID: 1426193613}
+  playerPFX: {fileID: 0}
+  cameraAnim: {fileID: 0}
+  jumpSFX: {fileID: 0}
+  hurtSound: {fileID: 0}
 --- !u!95 &752917298
 Animator:
   serializedVersion: 3
@@ -1732,7 +1736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1115283617
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2335,7 +2339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1600082791
 MonoBehaviour:
   m_ObjectHideFlags: 0

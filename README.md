@@ -36,8 +36,8 @@ There are 3 lanes. Top, Mid and Botlane. You can move from one lane to another u
 * [Crossy Road - Wikipedia](https://en.wikipedia.org/wiki/Crossy_Road)
 
 ## Video Links
-[Game Demo](https://youtu.be/s_3QLAiIcu0)
-[Repo Tour](https://youtu.be/h_XJWlG1SX0)
+* [Game Demo](https://youtu.be/s_3QLAiIcu0)
+* [Repo Tour](https://youtu.be/h_XJWlG1SX0)
 
 ## How to Run
 * Clone this repository
